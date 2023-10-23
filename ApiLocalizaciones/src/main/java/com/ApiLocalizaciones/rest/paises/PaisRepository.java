@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface PaisRepository extends JpaRepository<Pais, String> {
 
     List<Pais> findAll();
-    List<Pais> findByNombreContainingIgnoreCase(String cadena);
+    List<Pais> findByNombreContainingIgnoreCase(String nombre);
 
     Optional<Pais> findBycodigo(String codigo);
 }

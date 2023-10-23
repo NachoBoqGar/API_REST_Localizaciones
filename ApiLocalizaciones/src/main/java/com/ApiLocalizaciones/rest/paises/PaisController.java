@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/paises")
+@RequestMapping("paises")
 @RestController
 public class PaisController {
 
@@ -15,9 +15,10 @@ public class PaisController {
         this.paisService = paisService;
     }
 
+    //utilizamos term como nombre de parametro ya que AJAX lo utiliza por defecto y así no lo configuramos en nuestra aplicación para utiliza otro
     @GetMapping
-    List<Pais> buscarPaises (@RequestParam(required = false) final String cadena){
-        return paisService.findPaises(cadena);
+    List<Pais> buscarPaises (@RequestParam(required = false) final String term){
+        return paisService.findPaises(term);
     }
 
     @GetMapping("/{codigoPais}")

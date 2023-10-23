@@ -17,14 +17,9 @@ public class PaisService {
         this.paisRepository = paisRepository;
     }
 
-    //buscar pais por coincidencia de cadena introducida o mostrarlos todos si non se introduce nada
-    public List<Pais> findPaises(String cadena) {
-        if(cadena == null){
-            return paisRepository.findAll();
-        }
-
-        List<Pais> buscarPaises = paisRepository.findByNombreContainingIgnoreCase(cadena);
-        return  buscarPaises;
+    //buscar pais por coincidencia de cadena introducida
+    List<Pais> findPaises(String term) {
+        return paisRepository.findByNombreContainingIgnoreCase(term);
     }
 
     //buscar pais por su código
